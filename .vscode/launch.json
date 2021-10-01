@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-SpringBootBackendApplication<spring-boot-backend>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.daniel.springbootbackend.SpringBootBackendApplication",
+            "projectName": "spring-boot-backend",
+            "args": ""
+        }
+    ]
+}
