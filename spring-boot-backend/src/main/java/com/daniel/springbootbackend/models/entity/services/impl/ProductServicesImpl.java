@@ -15,10 +15,35 @@ public class ProductServicesImpl implements IProductServices{
     @Autowired
     private IProductDao productDao;
     
-    @Transactional
+
     @Override
+    @Transactional(readOnly = true)
     public List<Product> findAll(){
         return (List<Product>) productDao.findAll();
+    }
+
+    //
+    @Override
+    @Transactional(readOnly = true)
+    public Product findById(Long id) {
+        // TODO Auto-generated method stub
+        return productDao.findById(id).orElse(null);
+    }
+
+    //CREAR ELEMENTO EN LA TABLA
+    @Override
+    @Transactional
+    public Product save(Product product) {
+        // TODO Auto-generated method stub
+        return productDao.save(product);
+    }
+
+    //BORRAR ELEMENTO DE LA TABLA
+    @Override
+    @Transactional
+    public void delete(Long id) {
+        // TODO Auto-generated method stub
+        productDao.deleteById(id);
     }
 
 }
