@@ -1,6 +1,8 @@
 package com.daniel.springbootbackend.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,6 +25,11 @@ public class ProductRestController {
     @GetMapping("/product")
     public List<Product> index(){
         return productServices.findAll();
+    }
+
+    @GetMapping("/product/page/{page}")
+    public Page<Product> index(@PathVariable Integer page){
+        return productServices.findAll(PageRequest.of(page, 9));
     }
 
     @GetMapping("/product/{id}")
